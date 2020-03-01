@@ -3,6 +3,42 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { createStore } from "redux";
+
+
+// Action: action to be performed
+const increment = () => {
+    return {
+        type: "INCREMENT"
+    }
+}
+
+const decrement = () => {
+    return {
+        type: "DECREMENT"
+    }
+}
+
+// Reducer: how actions transform state
+
+const counter = (state = 0, action) => {
+    switch(action.type) {
+        case "INCREMENT":
+            return state + 1;
+        case "DECREMENT":
+            return state - 1;
+    }
+}
+
+// Store: globalized state
+
+let store = createStore(counter);
+store.subscribe(() => console.log(store.getState()));
+
+// Dispatch: send action to reducer
+
+store.dispatch(increment());
+
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
