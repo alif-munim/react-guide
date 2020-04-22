@@ -1,5 +1,15 @@
 import React from "react";
 
-export const App = () => {
-  return <div></div>;
-};
+function App() {
+  return <Navbar></Navbar>;
+}
+
+function Navbar() {
+  return (
+    <nav className="navbar">
+      <ul className="navbar-nav"></ul>
+    </nav>
+  );
+}
+
+export default App;
